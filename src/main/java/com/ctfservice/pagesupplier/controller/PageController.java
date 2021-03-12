@@ -5,13 +5,15 @@ import com.ctfservice.pagesupplier.model.entity.Pages;
 import com.ctfservice.pagesupplier.model.service.PageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/content")
+@RequestMapping("/")
 public class PageController implements IRequest {
 
     @Autowired
