@@ -17,18 +17,36 @@ public class PageService {
     @Autowired
     EntityManager em;
 
+    /**
+     * Accesses the page repository and returns all of its entry
+     * @return all pages
+     */
     public Iterable<Pages> getAll() {
         return pageRepository.findAll();
     }
 
+    /**
+     * Returns a entry by its id
+     * @param path the id
+     * @return the requested page
+     */
     public Optional<Pages> getById(String path) {
         return pageRepository.findById(path);
     }
 
+    /**
+     * Saves the page to the repository
+     * @param page
+     */
     public void createPage(Pages page) {
         pageRepository.save(page);
     }
 
+    /**
+     * Updates the contents of page path to the contents of Page page
+     * @param path
+     * @param page
+     */
     public void updatePage(String path, Pages page) {
         Optional<Pages> _oldPage = pageRepository.findById(path);
         if(_oldPage.isPresent()){
@@ -39,6 +57,10 @@ public class PageService {
 
     }
 
+    /**
+     * Deletes the page specified by path
+     * @param path
+     */
     public void deletePage(String path) {
         pageRepository.deleteById(path);
     }
